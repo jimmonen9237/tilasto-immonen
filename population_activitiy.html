@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width,initial-scale=1" name="viewport"/>
+  <title>
+   Finland Population &amp; Employment Explorer
+  </title>
+  <link href="population_activitiy.css" rel="stylesheet"/>
+ </head>
+ <body>
+  <main>
+   <div class="eyebrow">
+    Statistics Finland · Population 31 December · 2022–2024
+   </div>
+   <h1>
+    Population &amp; Employment Explorer
+   </h1>
+   <p class="sub">
+    Explore Finland's population by citizenship, main type of activity, occupational status, sex and age. Compare nationalities and follow changes across three years.
+   </p>
+   <section class="panel filters">
+    <div>
+     <label for="year">
+      Year
+     </label>
+     <select id="year">
+      <option>
+       2024
+      </option>
+      <option>
+       2023
+      </option>
+      <option>
+       2022
+      </option>
+     </select>
+    </div>
+    <div>
+     <label for="activity">
+      Main type of activity
+     </label>
+     <select id="activity">
+     </select>
+    </div>
+    <div>
+     <label for="occupation">
+      Occupational status
+     </label>
+     <select id="occupation">
+     </select>
+    </div>
+    <div>
+     <label for="sex">
+      Sex
+     </label>
+     <select id="sex">
+     </select>
+    </div>
+    <div>
+     <label for="age">
+      Age
+     </label>
+     <select id="age">
+     </select>
+    </div>
+    <div>
+     <label for="country">
+      Nationality (detail &amp; trend)
+     </label>
+     <select id="country">
+     </select>
+    </div>
+   </section>
+   <section class="stats">
+    <div class="panel stat">
+     <small>
+      Selected nationality · 2024 or selected year
+     </small>
+     <b id="current">
+      —
+     </b>
+     <small id="currentLabel">
+     </small>
+    </div>
+    <div class="panel stat">
+     <small>
+      Change since 2022
+     </small>
+     <b id="change">
+      —
+     </b>
+     <small>
+      Absolute population change
+     </small>
+    </div>
+    <div class="panel stat">
+     <small>
+      Year-on-year change
+     </small>
+     <b id="yoy">
+      —
+     </b>
+     <small>
+      Versus preceding year
+     </small>
+    </div>
+    <div class="panel stat">
+     <small>
+      Nationalities with data
+     </small>
+     <b id="count">
+      —
+     </b>
+     <small>
+      Under current filters
+     </small>
+    </div>
+   </section>
+   <div class="layout">
+    <section class="panel">
+     <h2>
+      Population trend · selected nationality
+     </h2>
+     <div class="chart" id="trend">
+     </div>
+     <div class="muted" id="trendNote">
+     </div>
+    </section>
+    <section class="panel">
+     <h2>
+      Largest nationalities · selected year
+     </h2>
+     <div class="bars" id="bars">
+     </div>
+    </section>
+   </div>
+   <section class="panel" style="margin-top:15px">
+    <div class="tools">
+     <div>
+      <h2 style="margin-bottom:4px">
+       Nationality ranking
+      </h2>
+      <span class="muted">
+       Population counts, not rates · click a nationality to view its trend
+      </span>
+     </div>
+     <div style="display:flex;gap:8px;flex-wrap:wrap">
+      <input aria-label="Search nationality" id="search" placeholder="Search nationality…"/>
+      <button id="csv">
+       Export CSV
+      </button>
+     </div>
+    </div>
+    <div class="tablewrap">
+     <table>
+      <thead>
+       <tr>
+        <th>
+         Nationality
+        </th>
+        <th id="colyear">
+         2024
+        </th>
+        <th>
+         2022
+        </th>
+        <th>
+         Change
+        </th>
+        <th>
+         Change %
+        </th>
+       </tr>
+      </thead>
+      <tbody id="tbody">
+      </tbody>
+     </table>
+    </div>
+   </section>
+   <p class="note">
+    <b>
+     How to read:
+    </b>
+    Values are counts of residents on 31 December, by nationality (citizenship), not country of birth. “…” in the source means unavailable or suppressed and is displayed as “—”, never zero. “Total” and other aggregation rows are excluded from nationality rankings to avoid double-counting. Occupational status is a separate dimension in the source: select “Total” when comparing main types of activity. Categories such as “Not employed” should not be interpreted as the unemployment rate. Source: Statistics Finland, table 115e, user-provided XML export.
+   </p>
+  </main>
+  <script src="population_activitiy.js">
+  </script>
+ </body>
+</html>

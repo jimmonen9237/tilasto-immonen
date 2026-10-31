@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width,initial-scale=1" name="viewport"/>
+  <title>
+   Finland | Female suspects by nationality · Interactive dashboard
+  </title>
+  <link href="female.css" rel="stylesheet"/>
+ </head>
+ <body class="female">
+  <div class="wrap">
+   <div class="eyebrow">
+    INTERACTIVE DATA EXPLORER · FINLAND
+   </div>
+   <h1>
+    Suspects by nationality
+   </h1>
+   <p class="intro muted">
+    Suspects of solved offences per 10,000 permanent residents, by nationality. Explore 2023–2025, 209 offence categories and age groups. All figures in this file refer to
+    <b>
+     females
+    </b>
+    . Rankings are always sorted from highest to lowest for the selected filters.
+   </p>
+   <div class="filters panel">
+    <div>
+     <label for="year">
+      Year
+     </label>
+     <select id="year">
+     </select>
+    </div>
+    <div>
+     <label for="offence">
+      Offence category
+     </label>
+     <select id="offence">
+     </select>
+    </div>
+    <div>
+     <label for="age">
+      Age group
+     </label>
+     <select id="age">
+     </select>
+    </div>
+    <div>
+     <label for="top">
+      Show nationalities
+     </label>
+     <select id="top">
+      <option value="15">
+       Top 15
+      </option>
+      <option value="25">
+       Top 25
+      </option>
+      <option value="50">
+       Top 50
+      </option>
+      <option selected="" value="all">
+       All nationalities
+      </option>
+     </select>
+    </div>
+    <div>
+     <label for="includeZero">
+      Zero values
+     </label>
+     <select id="includeZero">
+      <option value="yes">
+       Include zeros
+      </option>
+      <option value="no">
+       Hide zeros
+      </option>
+     </select>
+    </div>
+   </div>
+   <div class="stats">
+    <div class="stat">
+     <div class="small-label">
+      Highest nationality rate
+     </div>
+     <div class="value" id="highest">
+      —
+     </div>
+     <div class="muted" id="highestName">
+      —
+     </div>
+    </div>
+    <div class="stat">
+     <div class="small-label">
+      Finland reference
+     </div>
+     <div class="value" id="finland">
+      —
+     </div>
+     <div class="muted">
+      Per 10,000
+     </div>
+    </div>
+    <div class="stat">
+     <div class="small-label">
+      Foreign-country total
+     </div>
+     <div class="value" id="foreign">
+      —
+     </div>
+     <div class="muted">
+      Aggregate, not a nationality
+     </div>
+    </div>
+    <div class="stat">
+     <div class="small-label">
+      Nationalities displayed
+     </div>
+     <div class="value" id="count">
+      —
+     </div>
+     <div class="muted" id="countDetail">
+      —
+     </div>
+    </div>
+   </div>
+   <div class="grid">
+    <section class="panel">
+     <div class="chart-top">
+      <h2>
+       Nationality ranking
+      </h2>
+      <div class="chart-opts">
+       <span class="muted" style="font-size:12px">
+        Scale
+       </span>
+       <select id="scale">
+        <option value="linear">
+         Linear
+        </option>
+        <option value="sqrt">
+         Square root
+        </option>
+       </select>
+      </div>
+     </div>
+     <div class="muted" style="font-size:12px">
+      Suspects per 10,000 · sorted descending · hover for details
+     </div>
+     <div class="plot" id="plot">
+     </div>
+     <div class="axis" id="axis">
+     </div>
+    </section>
+    <aside class="panel side">
+     <h2>
+      How to read this
+     </h2>
+     <div class="line">
+      <strong>
+       Rates, not headcounts
+      </strong>
+      <p class="muted">
+       A value of 1,000 represents 1,000 suspects per 10,000 residents in that nationality, sex and age category under the source's definition.
+      </p>
+     </div>
+     <div class="line">
+      <strong>
+       Finland is a reference
+      </strong>
+      <p class="muted">
+       The Finnish-nationality bar is highlighted in amber. Regional and foreign-country totals are kept outside the ranking.
+      </p>
+     </div>
+     <div class="line">
+      <strong>
+       Age composition matters
+      </strong>
+      <p class="muted">
+       These are not age-standardized rates. Compare age-specific groups for a more like-for-like view.
+      </p>
+     </div>
+     <div class="line">
+      <strong>
+       Interpret cautiously
+      </strong>
+      <p class="muted">
+       Suspected does not mean convicted. No group population sizes or uncertainty estimates are included, and small populations can produce volatile rates.
+      </p>
+     </div>
+     <div class="line">
+      <strong>
+       Offence categories overlap
+      </strong>
+      <p class="muted">
+       Some categories are parent totals containing subcategories; never add category rates together.
+      </p>
+     </div>
+     <div class="line">
+      <strong>
+       Data scope
+      </strong>
+      <p class="muted">
+       Permanent residents of Finland, fefemales, 2023–2025. Historical nationality labels are retained as provided.
+      </p>
+     </div>
+    </aside>
+   </div>
+   <section class="panel" style="margin-top:18px">
+    <div class="chart-top">
+     <h2>
+      Explore the full ranking
+     </h2>
+     <div class="controls">
+      <input aria-label="Search nationality" id="search" placeholder="Search nationality…"/>
+      <button id="csv">
+       Export filtered CSV
+      </button>
+      <button id="reset">
+       Reset filters
+      </button>
+     </div>
+    </div>
+    <div class="tablewrap">
+     <table>
+      <thead>
+       <tr>
+        <th>
+         Rank
+        </th>
+        <th>
+         Nationality
+        </th>
+        <th>
+         Suspects per 10,000
+        </th>
+       </tr>
+      </thead>
+      <tbody id="tbody">
+      </tbody>
+     </table>
+    </div>
+   </section>
+   <p class="note">
+    Source: uploaded Statistics Finland-style XML table, “Persons suspected of solved offences by nationality, permanent residents of Finland”. The measure is “Suspects per 10,000 population.” Nationality labels and numerical values are preserved. “Unknown” age group is available but may contain zero values. A suspect rate should not be interpreted as the probability that a person committed a crime or as proof of causal differences between nationalities.
+   </p>
+   <footer>
+    Self-contained dashboard · Works locally in a modern browser · No network connection required
+   </footer>
+  </div>
+  <script src="female-data.js">
+  </script>
+  <script src="female.js">
+  </script>
+ </body>
+</html>

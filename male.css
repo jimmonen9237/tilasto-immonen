@@ -1,0 +1,266 @@
+
+:root {
+  font-family:Inter,system-ui,-apple-system,Segoe UI,sans-serif;
+  color:#e8eefb;
+  background:#0b1220}
+
+* {
+  box-sizing:border-box}
+
+body {
+  margin:0}
+
+.wrap {
+  max-width:1450px;
+  margin:auto;
+  padding:30px 24px 70px}
+
+h1 {
+  font-size:clamp(26px,3vw,40px);
+  letter-spacing:-1.2px;
+  margin:8px 0}
+
+h2 {
+  font-size:19px;
+  margin:0 0 16px}
+
+.muted {
+  color:#a8b8ce}
+
+.eyebrow {
+  font-size:12px;
+  letter-spacing:2px;
+  color:#83b9ff;
+  font-weight:750}
+
+.intro {
+  max-width:1050px;
+  line-height:1.6}
+
+.panel,.stat {
+  background:#131f32;
+  border:1px solid #2b3d55;
+  border-radius:16px;
+  padding:20px}
+
+.filters {
+  display:grid;
+  grid-template-columns:120px minmax(260px,2fr) 150px 135px 140px;
+  gap:14px;
+  margin:24px 0}
+
+.filters label,.small-label {
+  display:block;
+  color:#a8b8ce;
+  font-size:12px;
+  font-weight:650;
+  margin-bottom:7px}
+
+select,input,button {
+  font:inherit}
+
+select,input {
+  width:100%;
+  background:#0c1729;
+  border:1px solid #3a4b63;
+  border-radius:9px;
+  color:#fff;
+  padding:11px}
+
+button {
+  cursor:pointer;
+  background:#1e3657;
+  border:1px solid #42648b;
+  color:#fff;
+  border-radius:9px;
+  padding:10px 14px}
+
+button:hover {
+  background:#28507e}
+
+.stats {
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:14px;
+  margin-bottom:18px}
+
+.stat .value {
+  font-size:27px;
+  font-weight:800;
+  margin:9px 0 2px;
+  font-variant-numeric:tabular-nums}
+
+.grid {
+  display:grid;
+  grid-template-columns:minmax(0,1fr) 330px;
+  gap:18px}
+
+.chart-top {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:12px;
+  flex-wrap:wrap}
+
+.chart-opts {
+  display:flex;
+  align-items:center;
+  gap:10px;
+  flex-wrap:wrap}
+
+.chart-opts select {
+  width:auto}
+
+.plot {
+  margin-top:20px;
+  max-height:950px;
+  overflow:auto;
+  padding-right:6px}
+
+.barrow {
+  display:grid;
+  grid-template-columns:35px minmax(135px,205px) minmax(80px,1fr) 83px;
+  align-items:center;
+  gap:10px;
+  min-height:31px;
+  font-size:13px}
+
+.rank {
+  color:#8ea1bb;
+  text-align:right}
+
+.name {
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap}
+
+.track {
+  height:16px;
+  background:#22314a;
+  border-radius:4px;
+  position:relative;
+  overflow:hidden}
+
+.bar {
+  height:100%;
+  background:linear-gradient(90deg,#458de0,#71c4f0);
+  border-radius:4px}
+
+.bar.fin {
+  background:#e6a65b}
+
+.num {
+  text-align:right;
+  font-variant-numeric:tabular-nums;
+  font-weight:650}
+
+.axis {
+  display:flex;
+  justify-content:space-between;
+  font-size:11px;
+  color:#9eb1c8;
+  margin:15px 86px 0 250px}
+
+.side p {
+  line-height:1.55}
+
+.side .line {
+  padding:13px 0;
+  border-bottom:1px solid #2b3d55}
+
+.side .line strong {
+  display:block;
+  margin-bottom:5px}
+
+.controls {
+  display:flex;
+  gap:10px;
+  align-items:center;
+  flex-wrap:wrap;
+  margin:16px 0}
+
+.controls input {
+  max-width:290px}
+
+.tablewrap {
+  overflow:auto;
+  max-height:500px}
+
+table {
+  width:100%;
+  border-collapse:collapse;
+  font-size:13px}
+
+th,td {
+  padding:10px 12px;
+  text-align:left;
+  border-bottom:1px solid #2b3d55}
+
+th {
+  position:sticky;
+  top:0;
+  background:#1a2a40;
+  color:#bcd1ea}
+
+td:last-child,th:last-child {
+  text-align:right;
+  font-variant-numeric:tabular-nums}
+
+.note {
+  font-size:13px;
+  line-height:1.7;
+  color:#afc1d6;
+  margin-top:18px}
+
+footer {
+  margin-top:24px;
+  color:#8ea1bb;
+  font-size:12px}
+
+@media(max-width:1050px) {
+  .filters {
+  grid-template-columns:repeat(3,1fr)}
+
+.grid {
+  grid-template-columns:1fr}
+
+.stats {
+  grid-template-columns:repeat(2,1fr)}
+
+}
+
+@media(max-width:600px) {
+  .wrap {
+  padding:18px 12px}
+
+.filters {
+  grid-template-columns:1fr 1fr}
+
+.filters>div:nth-child(2) {
+  grid-column:1/-1;
+  grid-row:2}
+
+.stats {
+  gap:8px}
+
+.stat {
+  padding:13px}
+
+.stat .value {
+  font-size:20px}
+
+.barrow {
+  grid-template-columns:23px 110px minmax(40px,1fr) 67px;
+  gap:5px;
+  font-size:11px}
+
+.axis {
+  margin-left:145px;
+  margin-right:67px}
+
+.panel {
+  padding:14px}
+
+}
+
+
